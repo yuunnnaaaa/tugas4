@@ -1,6 +1,16 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "project");
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project";
+
+$conn = new mysqli($host, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 function query($query) {
     global $conn;
     $result = mysqli_query($conn, $query);
@@ -24,12 +34,11 @@ function registrasi($data) {
                 </script>";
         return false;
     }
-
+    // enkripsi password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     mysqli_query($conn, "INSERT INTO user VALUES('', '$nama', '$password')");
 
     return mysqli_affected_rows($conn);
-
 }
 ?>

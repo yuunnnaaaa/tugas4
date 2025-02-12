@@ -2,11 +2,7 @@
 require 'function.php';
 $nama = mysqli_query($conn,"SELECT * FROM user ORDER BY nama LIMIT 20");
 
-//ambil data dari query
-// $result = mysqli_query($conn, "SELECT passeord, diagnosa_penyakit, catatan FROM user ORDER BY username LIMIT 10");
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +14,6 @@ $nama = mysqli_query($conn,"SELECT * FROM user ORDER BY nama LIMIT 20");
 <body>
     
 <h1>Daftar Akun</h1>
-
-<!-- <a href="tambah.php">Tambah data pasien</a> -->
 
 <table border="1" cellpadding="10" cellspacing="0">
 
